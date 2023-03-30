@@ -33,6 +33,7 @@ class StudentDetailFragment : Fragment() {
 
     fun observeViewModel(){
         detailModel.studentLD.observe(viewLifecycleOwner, Observer {
+
 //            R.id.textInputLayout.getEditText().setText("text");
         })
     }
