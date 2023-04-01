@@ -28,13 +28,15 @@ class StudentDetailFragment : Fragment() {
         detailModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         detailModel.fetch()
 
-//        observeViewModel()
+        observeViewModel()
     }
 
     fun observeViewModel(){
         detailModel.studentLD.observe(viewLifecycleOwner, Observer {
-
-//            R.id.textInputLayout.getEditText().setText("text");
+            view?.findViewById<TextInputEditText>(R.id.txtID)?.setText(detailModel.studentLD.value?.id)
+            view?.findViewById<TextInputEditText>(R.id.txtName)?.setText(detailModel.studentLD.value?.name)
+            view?.findViewById<TextInputEditText>(R.id.txtBod)?.setText(detailModel.studentLD.value?.bod)
+            view?.findViewById<TextInputEditText>(R.id.txtPhone)?.setText(detailModel.studentLD.value?.phone)
         })
     }
 }
