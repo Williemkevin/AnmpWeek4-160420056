@@ -39,13 +39,13 @@ class StudentListFragment : Fragment() {
 
         observeViewModel()
 
-//        view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout).setOnRefreshListener {
-//            recView.visibility = View.GONE
-//            view.findViewById<TextView>(R.id.txtError).visibility = View.GONE
-//            view.findViewById<ProgressBar>(R.id.progressLoad).visibility = View.VISIBLE
-//            viewModel.refresh()
-//            view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout).isRefreshing = false
-//        }
+        view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout).setOnRefreshListener {
+            recView.visibility = View.GONE
+            view.findViewById<TextView>(R.id.txtError).visibility = View.GONE
+            view.findViewById<ProgressBar>(R.id.progressLoad).visibility = View.VISIBLE
+            viewModel.refresh()
+            view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout).isRefreshing = false
+        }
     }
 
     fun observeViewModel(){

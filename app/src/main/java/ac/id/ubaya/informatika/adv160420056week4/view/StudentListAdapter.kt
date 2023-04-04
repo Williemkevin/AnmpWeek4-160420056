@@ -2,13 +2,16 @@ package ac.id.ubaya.informatika.adv160420056week4.view
 
 import ac.id.ubaya.informatika.adv160420056week4.R
 import ac.id.ubaya.informatika.adv160420056week4.model.Student
+import ac.id.ubaya.informatika.adv160420056week4.util.loadImage
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 class StudentListAdapter(val studentList:ArrayList<Student>) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
@@ -30,9 +33,12 @@ class StudentListAdapter(val studentList:ArrayList<Student>) : RecyclerView.Adap
         holder.view.findViewById<TextView>(R.id.txtName).text = studentList[position].name
 
         holder.view.findViewById<Button>(R.id.btnDetail).setOnClickListener {
-            val action = StudentListFragmentDirections.actionStudentDetail()
+            val action = StudentListFragmentDirections.actionStudentDetail(studentList[position].id.toString())
             Navigation.findNavController(it).navigate(action)
         }
+        var imageView = holder.view.findViewById<ImageView>(R.id.imageViewStudent)
+        var progressBar = holder.view.findViewById<ProgressBar>(R.id.progressBar)
+        imageView.loadImage(studentList[position].photoUrl.toString(), progressBar)
     }
 
     fun updateStudentList(newStudentList: ArrayList<Student>){
