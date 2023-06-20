@@ -16,6 +16,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +40,8 @@ class StudentDetailFragment : Fragment(), FragmentDetailInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dataBinding.updateListener = this
 
         val studentId = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
 
@@ -78,6 +81,6 @@ class StudentDetailFragment : Fragment(), FragmentDetailInterface {
     }
 
     override fun onUpdateClick(v: View, obj: Student) {
-        TODO("Not yet implemented")
+        Toast.makeText(context, "Succesful Update", Toast.LENGTH_SHORT).show()
     }
 }
