@@ -25,7 +25,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 //        val student1 = Student("16055","Nonie","1998/03/28","5718444778","http://dummyimage.com/75x100.jpg/cc0000/ffffff")
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://adv.jitusolution.com/student.php?id=$studentID"
+        val url = "http://jitusolution.com/student.php?id=$studentID"
         val stringRequest = StringRequest(
             Request.Method.GET, url, {
             val result = Gson().fromJson<Student>(it, Student::class.java)

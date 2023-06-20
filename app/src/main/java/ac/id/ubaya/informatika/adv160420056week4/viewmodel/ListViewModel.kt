@@ -28,7 +28,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
         studentLoadErrorLD.value = false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://adv.jitusolution.com/student.php"
+        val url = "http://jitusolution.com/student.php"
         val stringRequest = StringRequest(Request.Method.GET, url, {
                 val sType = object : TypeToken<List<Student>>() { }.type
                 val result = Gson().fromJson<List<Student>>(it, sType)
